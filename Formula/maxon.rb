@@ -8,7 +8,7 @@ class Maxon < Formula
   # Apple silicon only: there is no x64-macos target yet.
   depends_on arch: :arm64
   url "https://github.com/maxon-lang/maxon/releases/download/v0.1.0/maxon-0.1.0-arm64-macos.tar.gz"
-  sha256 "e16d8558900cb676c5d345a60a989de0efa819dfe1f5d10c6c0e3ccc20a314d4"
+  sha256 "d9001fbed6e3f46a364cca0b5513331090ff7598bd658d58c49ab77ea9d0f7a3"
 
   def install
     # ⛔ THE COMPILER AND ITS STANDARD LIBRARY MUST STAY SIBLINGS. `maxon` finds `stdlib/` by walking up
