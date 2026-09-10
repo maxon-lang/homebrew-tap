@@ -2,13 +2,13 @@
 class Maxon < Formula
   desc "Systems language whose compiler is written in itself"
   homepage "https://maxon.dev"
-  version "0.1.0"
+  version "0.1.1"
   license any_of: ["MIT", "Apache-2.0"]
 
   # Apple silicon only: there is no x64-macos target yet.
   depends_on arch: :arm64
-  url "https://github.com/maxon-lang/maxon/releases/download/v0.1.0/maxon-0.1.0-arm64-macos.tar.gz"
-  sha256 "d9001fbed6e3f46a364cca0b5513331090ff7598bd658d58c49ab77ea9d0f7a3"
+  url "https://github.com/maxon-lang/maxon/releases/download/v0.1.1/maxon-0.1.1-arm64-macos.tar.gz"
+  sha256 "ef681ac596717012c9fcc02d6e0d520ba670f55949c5125e1a0447a1aa678a78"
 
   def install
     # ⛔ THE COMPILER AND ITS STANDARD LIBRARY MUST STAY SIBLINGS. `maxon` finds `stdlib/` by walking up
@@ -29,7 +29,7 @@ class Maxon < Formula
       end 'main'
     MAXON
 
-    assert_match version.to_s, shell_output("#{bin}/maxon --version")
+    assert_match version.to_s, shell_output("#{bin}/maxon version")
     system bin/"maxon", "build", testpath/"hello.maxon", "-o", testpath/"hello"
     assert_equal "hello\n", shell_output(testpath/"hello")
   end
