@@ -2,13 +2,26 @@
 class Maxon < Formula
   desc "Systems language whose compiler is written in itself"
   homepage "https://maxon.dev"
-  version "0.1.1"
   license any_of: ["MIT", "Apache-2.0"]
 
-  # Apple silicon only: there is no x64-macos target yet.
-  depends_on arch: :arm64
-  url "https://github.com/maxon-lang/maxon/releases/download/v0.1.1/maxon-0.1.1-arm64-macos.tar.gz"
-  sha256 "ef681ac596717012c9fcc02d6e0d520ba670f55949c5125e1a0447a1aa678a78"
+  on_macos do
+    depends_on arch: :arm64
+    on_arm do
+      url "https://github.com/maxon-lang/maxon/releases/download/v0.1.1/maxon-0.1.1-arm64-macos.tar.gz"
+      sha256 "ef681ac596717012c9fcc02d6e0d520ba670f55949c5125e1a0447a1aa678a78"
+    end
+  end
+
+  on_linux do
+    on_intel do
+      url "https://github.com/maxon-lang/maxon/releases/download/v0.1.1/maxon-0.1.1-x64-linux.tar.gz"
+      sha256 "2d68eb88b62aef14b4c6151cbdc2f0a592cded7b6b6480578f567420bf4445f5"
+    end
+    on_arm do
+      url "https://github.com/maxon-lang/maxon/releases/download/v0.1.1/maxon-0.1.1-arm64-linux.tar.gz"
+      sha256 "7c454db23c53d51e08338679f26fc395c73573fc687bdb9f19cfca648606543c"
+    end
+  end
 
   def install
     # ⛔ THE COMPILER AND ITS STANDARD LIBRARY MUST STAY SIBLINGS. `maxon` finds `stdlib/` by walking up
