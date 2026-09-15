@@ -7,27 +7,27 @@ class Maxon < Formula
   on_macos do
     depends_on arch: :arm64
     on_arm do
-      url "https://github.com/maxon-lang/maxon/releases/download/v0.1.1/maxon-0.1.1-arm64-macos.tar.gz"
-      sha256 "ef681ac596717012c9fcc02d6e0d520ba670f55949c5125e1a0447a1aa678a78"
+      url "https://github.com/maxon-lang/maxon/releases/download/v0.2.0/maxon-0.2.0-arm64-macos.tar.gz"
+      sha256 "ed911e397a38f0d15dfb8e680b549101c05fad5e34691cbc814bdcb30ee60b29"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/maxon-lang/maxon/releases/download/v0.1.1/maxon-0.1.1-x64-linux.tar.gz"
-      sha256 "2d68eb88b62aef14b4c6151cbdc2f0a592cded7b6b6480578f567420bf4445f5"
+      url "https://github.com/maxon-lang/maxon/releases/download/v0.2.0/maxon-0.2.0-x64-linux.tar.gz"
+      sha256 "02220eaaa5e5d667fa02a74a5afe5a47839f7d8b75d13b1f8084dd55106b547b"
     end
     on_arm do
-      url "https://github.com/maxon-lang/maxon/releases/download/v0.1.1/maxon-0.1.1-arm64-linux.tar.gz"
-      sha256 "7c454db23c53d51e08338679f26fc395c73573fc687bdb9f19cfca648606543c"
+      url "https://github.com/maxon-lang/maxon/releases/download/v0.2.0/maxon-0.2.0-arm64-linux.tar.gz"
+      sha256 "1b85e04ae9cfb4168a1ceab744756ea34eae6792706383cba6bfb915e54e88d9"
     end
   end
 
   def install
-    # ⛔ THE COMPILER AND ITS STANDARD LIBRARY MUST STAY SIBLINGS. `maxon` finds `stdlib/` by walking up
-    # from its own executable, so installing the binary into `bin` on its own would leave it with no
-    # standard library at all. The whole tree goes into libexec, and `bin/maxon` is a symlink to it —
-    # the compiler resolves that link, so the walk starts in the real prefix.
+    # ⛔ THE COMPILER, ITS STANDARD LIBRARY AND ITS RUNTIME MUST STAY SIBLINGS. `maxon` finds `stdlib/`
+    # and `runtime/` by walking up from its own executable, so installing the binary into `bin` on its
+    # own would leave it unable to compile at all. The whole tree goes into libexec, and `bin/maxon` is
+    # a symlink to it — the compiler resolves that link, so the walk starts in the real prefix.
     libexec.install Dir["*"]
     bin.install_symlink libexec/"maxon"
   end
