@@ -7,19 +7,19 @@ class Maxon < Formula
   on_macos do
     depends_on arch: :arm64
     on_arm do
-      url "https://github.com/maxon-lang/maxon/releases/download/v0.2.1/maxon-0.2.1-arm64-macos.tar.gz"
-      sha256 "d510a83d624d3149332ea5861bf053eb8629677f6885950300a7e756a218b16b"
+      url "https://github.com/maxon-lang/maxon/releases/download/v0.2.2/maxon-0.2.2-arm64-macos.tar.gz"
+      sha256 "b5e67b4f106eb838b7d6101283f4626010451c74f0741e278171616257f59e70"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/maxon-lang/maxon/releases/download/v0.2.1/maxon-0.2.1-x64-linux.tar.gz"
-      sha256 "76fc62afd0eea63bb8b69e65ef2cf1c1257ef930206607d5fd44833b5d4d6368"
+      url "https://github.com/maxon-lang/maxon/releases/download/v0.2.2/maxon-0.2.2-x64-linux.tar.gz"
+      sha256 "79365fe7c455233def86e01ec8d12b1fea86cbd49c38ed330e385fa1b670742a"
     end
     on_arm do
-      url "https://github.com/maxon-lang/maxon/releases/download/v0.2.1/maxon-0.2.1-arm64-linux.tar.gz"
-      sha256 "d6f69829cebec8679086229784e9a3610626b2a8ea36bae4268875c8f3e84e6c"
+      url "https://github.com/maxon-lang/maxon/releases/download/v0.2.2/maxon-0.2.2-arm64-linux.tar.gz"
+      sha256 "e66fd6398160c8ac8b54d2ce50bcab018817306e998ddaa86846fbf1f1a22883"
     end
   end
 
